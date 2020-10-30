@@ -5,6 +5,9 @@
   margin-right: auto;
   max-width: 1500px;
 }
+.row_container {
+  margin-top: 140px;
+}
 
 .home_image {
   width: 100%;
