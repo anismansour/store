@@ -11,7 +11,12 @@ function Home() {
         <img className="home_image" src={banner} alt="bannerImage" />
         <div className="row_container">
           <div className="home_row">
-            <Product />
+            <Product
+              title="The lean startup"
+              price={29.99}
+              image="https://images-na.ssl-images-amazon.com/images/I/81-QB7nDh4L.jpg"
+              rating={5}
+            />
             <Product />
           </div>
           <div className="home_row">

@@ -25,6 +25,9 @@
   height: 100px;
   margin-bottom: 15px;
 }
+.product_rating {
+  display: flex;
+}
 
 .product_price {
   margin-top: 5px;
