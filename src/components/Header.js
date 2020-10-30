@@ -23,7 +23,7 @@ function Header() {
         </div>
         <div className="header_option">
           <span className="header_option_LineOne"> Your</span>
-          <span className="header_option_LineTwo"> Prime</span>
+          <span className="header_option_LineTwo"> Account</span>
         </div>
         <div className="header_basket">
           <ShoppingCartIcon />
