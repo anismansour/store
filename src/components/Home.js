@@ -20,12 +20,12 @@ function Home() {
             <Product />
           </div>
           <div className="home_row">
-            <Product />
-            <Product />
+            <Product image="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-blue-hero?wid=940&hei=1112&fmt=png-alpha&qlt=80&.v=1601620623000" />
+            <Product image="https://www.adorama.com/images/Large/acmvvj2lla80.jpg" />
             <Product />
           </div>
           <div className="home_row">
-            <Product />
+            <Product image="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6401/6401722_sd.jpg;maxHeight=640;maxWidth=550" />
           </div>
         </div>
       </div>
