@@ -1,9 +1,18 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import './style/Subtotal.css';
 import CurrencyFormat from 'react-currency-format';
+import { useStateValue } from '../context API/StateProvider';
 
 function Subtotal() {
-  let value = 200234;
+  const [{ basket }, dispatch] = useStateValue();
+  let value = 0;
+  const total = () => {
+    for (let i = 0; i <= basket.length - 1; i++) {
+      value = value + basket[i].price;
+    }
+  };
+  total();
   return (
     <div className="subtotal">
       <CurrencyFormat
