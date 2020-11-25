@@ -8,9 +8,10 @@ function Subtotal() {
   const [{ basket }, dispatch] = useStateValue();
   let value = 0;
   const total = () => {
-    for (let i = 0; i <= basket.length - 1; i++) {
-      value = value + basket[i].price;
-    }
+    // for (let i = 0; i <= basket.length - 1; i++) {
+    //   value = value + basket[i].price;
+    // }
+    value = basket?.reduce((amount, item) => item.price + amount, 0);
   };
   total();
   return (
@@ -19,7 +20,7 @@ function Subtotal() {
         renderText={(value) => (
           <>
             <p>
-              subtotal( 0 items): <strong>{value}</strong>
+              subtotal( {basket.length}): <strong>{value}</strong>
             </p>
             <small className="subtotal__gift">
               <input type="checkbox" />
