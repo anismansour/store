@@ -21,7 +21,7 @@ function Home() {
             <Product
               id="2"
               title="KitchenAid"
-              price={259.99}
+              price={159.99}
               rating={3}
               image="https://kitchenaid-h.assetsadobe.com/is/image/content/dam/global/kitchenaid/countertop-appliance/portable/images/hero-RRK150ER.tif"
             />
