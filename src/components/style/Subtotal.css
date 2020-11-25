@@ -17,13 +17,17 @@
 .subtotal__gift > input {
   margin-right: 5px;
 }
-.subtotal > button {
+.button-checkout {
   background: orangered;
   border-radius: 2px;
   width: 100%;
   height: 30px;
   border: 1px solid;
   margin-top: 10px;
-  border-color: chocolate;
+  border-color: gray;
+  border-radius: 15px;
   color: black;
+}
+.button-checkout:hover {
+  box-shadow: 5px 5px 5px black;
 }
