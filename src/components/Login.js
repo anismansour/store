@@ -16,7 +16,13 @@ function Login() {
           <input type="text" />
           <h5>Password</h5>
           <input type="password" />
+          <button className="login__button">Sign In</button>
         </form>
+        <p>
+          {' '}
+          By signing-in you agree to OnlineShop conditions of use and sale.
+        </p>
+        <button className="login__button">Create an account</button>
       </div>
     </div>
   );

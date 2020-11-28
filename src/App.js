@@ -5,6 +5,7 @@ import Home from './components/Home';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Checkout from './components/Checkout';
 import Login from './components/Login';
+import Banner from './components/Banner.js';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Home />
           </Route>
         </Switch>
+        <Banner />
       </div>
     </Router>
   );

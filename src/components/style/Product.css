@@ -33,9 +33,12 @@
   margin-top: 5px;
 }
 .product > button {
-  background-color: #f0c14b;
+  background-color: rgb(38, 154, 192);
   border: 1px solid;
   margin-top: 10px;
   border-color: #a88734 #9c7e31 #846a29;
   color: #111;
+  height: 30px;
+  width: 100%;
+  border-radius: 15px;
 }

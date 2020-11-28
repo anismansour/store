@@ -1,0 +1,13 @@
+.banner {
+  height: 50px;
+  text-align: center;
+  background-color: rgb(9, 107, 156);
+}
+.link {
+  display: inline-block;
+  margin-top: 15px;
+  font-weight: 500;
+  color: black;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+}
