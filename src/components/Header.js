@@ -9,9 +9,7 @@ import { useStateValue } from '../context API/StateProvider';
 
 function Header() {
   const [{ basket }, dispatch] = useStateValue();
-  console.log('this is the basket number ===>', basket.length);
-
-  const basketNum = () => {};
+  //console.log('this is the basket number ===>', basket.length);
 
   return (
     <div className="header">

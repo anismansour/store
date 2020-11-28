@@ -10,6 +10,7 @@
   height: 60%;
   margin-bottom: 10px;
   min-height: 140px;
+  max-height: 250px;
 }
 .checkout__title {
   margin-right: 10px;
