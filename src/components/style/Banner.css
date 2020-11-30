@@ -2,6 +2,8 @@
   height: 50px;
   text-align: center;
   background-color: rgb(9, 107, 156);
+  width: 100%;
+  bottom: 0;
 }
 .link {
   display: inline-block;

@@ -22,9 +22,9 @@ function App() {
           <Route path="/">
             <Header />
             <Home />
+            <Banner />
           </Route>
         </Switch>
-        <Banner />
       </div>
     </Router>
   );
