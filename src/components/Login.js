@@ -1,16 +1,30 @@
 import React, { useState } from 'react';
 import './style/Login.css';
 import logo from '../Images/online-logo.png';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import { auth } from '../firebase';
 
 function Login() {
+  const history = useHistory();
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const signIn = (e) => {
     e.preventDefault();
+    console.log(email);
+    console.log(password);
   };
   const register = (e) => {
     e.preventDefault();
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then((auth) => {
+        //console.log(auth);
+        if (auth) {
+          history.push('/');
+        }
+      })
+      .catch((error) => alert(error.message));
   };
   return (
     <div className="login">
@@ -28,7 +42,7 @@ function Login() {
           />
           <h5>Password</h5>
           <input
-            onChange={(e) => setPassword(e.target.password)}
+            onChange={(e) => setPassword(e.target.value)}
             value={password}
             type="password"
           />
