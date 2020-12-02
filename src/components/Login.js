@@ -15,6 +15,7 @@ function Login() {
       .signInWithEmailAndPassword(email, password)
       .then((auth) => {
         history.push('/');
+        //console.log('hheeeyyyyy hereee ', auth);
       })
       .catch((error) => alert(error.message));
   };
@@ -23,7 +24,7 @@ function Login() {
     auth
       .createUserWithEmailAndPassword(email, password)
       .then((auth) => {
-        //console.log(auth);
+        console.log(auth);
         if (auth) {
           history.push('/');
         }

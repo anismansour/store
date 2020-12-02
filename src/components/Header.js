@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import { useStateValue } from '../context API/StateProvider';
 
 function Header() {
-  const [{ basket }, dispatch] = useStateValue();
+  const [{ user, basket }, dispatch] = useStateValue();
   //console.log('this is the basket number ===>', basket.length);
 
   return (
@@ -23,7 +23,7 @@ function Header() {
       <div className="header_nav">
         <Link to="/login">
           <div className="header_option">
-            <span className="header_option_LineOne"> Hello Guest</span>
+            <span className="header_option_LineOne"> Hello {user}</span>
 
             <span className="header_option_LineTwo"> Sign In</span>
           </div>

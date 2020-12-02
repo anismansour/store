@@ -1,10 +1,13 @@
 /* eslint-disable no-unused-vars */
+import { auth } from '../firebase';
+
 export const initialState = {
   basket: [],
+  user: null,
 };
 
 const reducer = (state, action) => {
-  console.log(state);
+  //console.log(state);
   switch (action.type) {
     case 'ADD_TO_BASKET':
       return {
@@ -22,6 +25,11 @@ const reducer = (state, action) => {
         console.warn('cannot remove product', action.id);
       }
       return { ...state, basket: newBasket };
+    case 'SET_USER':
+      return {
+        ...state,
+        user: action.user,
+      };
 
     default:
       return state;
