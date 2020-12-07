@@ -29,7 +29,7 @@ function Header() {
         <SearchIcon className="header_searchIcon" />
       </div>
       <div className="header_nav">
-        <Link to="/login">
+        <Link to={user ? '/' : '/login'}>
           <div onClick={handleAuth} className="header_option">
             <span className="header_option_LineOne">
               {' '}
