@@ -1,22 +1,35 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import './style/Payment.css';
 import { useStateValue } from '../context API/StateProvider';
 import CheckoutProduct from './CheckoutProduct';
+import { Link } from 'react-router-dom';
+import {
+  CardElement,
+  Elements,
+  useStripe,
+  useElements,
+} from '@stripe/react-stripe-js';
 
 function Payment() {
   const [{ user, basket }, dispatch] = useStateValue();
 
+  const stripe = useStripe();
+  const elements = useElements();
+
   return (
     <div className="payment">
       <div className="payment__container">
+        <h1>
+          Checkout (<Link to="/checkout"> {basket?.length} </Link>)items
+        </h1>
         <div className="payment__section">
           <h3>Delivery Information</h3>
-          <div className="Payment Adress">
+          <div className="payment__info">
+            <p>{user?.email}</p>
             <p>
-              {user
-                ? `${user.email} 
-                 ADDRESS: 123 test avenue, Los Angeles ,Ca 90036`
-                : 'You do not have an account'}
+              {' '}
+              {user ? 'Adress:123 test avenue, Los Angeles ,Ca 90036' : ''}{' '}
             </p>
           </div>
         </div>
@@ -36,7 +49,16 @@ function Payment() {
             ))}
           </div>
         </div>
-        <div className="payment__section"></div>
+        <div className="payment__section">
+          <div className="payment__title">
+            <h3>Payment Method</h3>
+          </div>
+          <div className="payment__details">
+            <form>
+              <CardElement />
+            </form>
+          </div>
+        </div>
       </div>
     </div>
   );
