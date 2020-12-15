@@ -29,4 +29,5 @@
 
 .payment__details {
   flex: 0.8;
+  height: 50px;
 }
