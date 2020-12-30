@@ -112,6 +112,10 @@ function Payment() {
         <div className="payment__section">
           <div className="payment__title">
             <h3>Payment Method</h3>
+            <p className="info">
+              For testing use Stripe testing card NB 4242 4242 4242 4242 with
+              Any 3 digits and any future date
+            </p>
           </div>
           <div className="payment__details">
             <form onSubmit={handleSubmit}>
@@ -131,7 +135,10 @@ function Payment() {
                   thousandSeparator={true}
                   prefix={'$'}
                 />
-                <button disabled={processing || disabled || succeeded}>
+                <button
+                  className="button__payment"
+                  disabled={processing || disabled || succeeded}
+                >
                   <span>{processing ? <p>Processing</p> : 'Buy now'}</span>
                 </button>
               </div>
