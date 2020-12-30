@@ -7,6 +7,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import CurrencyFormat from 'react-currency-format';
 import axios from '../axios';
+import { db } from '../firebase';
 
 function Payment() {
   const [{ user, basket }, dispatch] = useStateValue();
@@ -16,19 +17,6 @@ function Payment() {
   const [processing, setProcessing] = useState('');
   const [clientSecret, setClientSecret] = useState(true);
   const history = useHistory();
-
-  useEffect(() => {
-    const getClientSecret = async () => {
-      const response = await axios({
-        method: 'post',
-        url: `/payments/create?total=${total(basket) * 100}`,
-      });
-      setClientSecret(response.data.clientSecret);
-    };
-    getClientSecret();
-  }, [basket]);
-  // load each time the basket items changes
-
   let value = 0;
   const stripe = useStripe();
   const elements = useElements();
@@ -37,6 +25,22 @@ function Payment() {
     value = basket?.reduce((amount, item) => item.price + amount, 0);
   };
   total();
+
+  useEffect(() => {
+    const getClientSecret = async () => {
+      const response = await axios({
+        method: 'post',
+        url: `/payments/create?total=${value * 100}`,
+      });
+      setClientSecret(response.data.clientSecret);
+    };
+    getClientSecret();
+  }, [basket]);
+
+  console.log('the secret is ===>', clientSecret);
+  console.log('the USER is ===>', user);
+
+  // load each time the basket items changes
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -49,10 +53,23 @@ function Payment() {
         },
       })
       .then(({ paymentIntent }) => {
+        db.collection('users')
+          .doc(user?.uid)
+          .collection('orders')
+          .doc(paymentIntent.id)
+          .set({
+            basket: basket,
+            amount: paymentIntent.amount,
+            created: paymentIntent.created,
+          });
+
         setSucceeded(true);
         setError(null);
         setProcessing(false);
-        history.replaceState('/orders');
+        dispatch({
+          type: 'EMPTY_BASKET',
+        });
+        history.replace('/orders');
       });
   };
   const handleChange = (e) => {

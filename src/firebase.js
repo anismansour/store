@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 import firebase from 'firebase';
+
 const firebaseConfig = {
   apiKey: 'AIzaSyC45qm_Dwd_LrWM5RwwXjGueueDJy5mxfs',
   authDomain: 'online-store-anis.firebaseapp.com',
