@@ -1,5 +1,10 @@
 /* eslint-disable no-empty-pattern */
 /* eslint-disable no-unused-vars */
+
+//to start
+// front   from store npm start
+// backend start from ./function  firebase emulators:start
+
 import React, { useEffect } from 'react';
 import './components/style/App.css';
 import Header from './components/Header';
