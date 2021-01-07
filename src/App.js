@@ -15,6 +15,7 @@ import Login from './components/Login';
 import Banner from './components/Banner.js';
 import Payment from './components/Payment';
 import Orders from './components/Orders';
+import AddProduct from './components/AddProduct';
 import { auth } from './firebase';
 import { useStateValue } from './context API/StateProvider';
 import { loadStripe } from '@stripe/stripe-js';
@@ -58,6 +59,10 @@ function App() {
           <Route exact path="/orders">
             <Header />
             <Orders />
+          </Route>
+          <Route exact path="/add">
+            <Header />
+            <AddProduct />
           </Route>
           <Route path="/payment">
             <Header />

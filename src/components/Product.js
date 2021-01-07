@@ -3,7 +3,7 @@ import React from 'react';
 import { useStateValue } from '../context API/StateProvider';
 import './style/Product.css';
 
-function Product({ id, title, image, price, rating }) {
+function Product({ id, title, image, price, rating, hideButton }) {
   const [{ basket }, dispatch] = useStateValue();
   //console.log('this is the basket===>', basket);
 
@@ -36,7 +36,7 @@ function Product({ id, title, image, price, rating }) {
         </div>
       </div>
       <img src={image} alt="productImage" />
-      <button onClick={addToBasket}>Add to Basket</button>
+      {!hideButton && <button onClick={addToBasket}>Add to Basket</button>}
     </div>
   );
 }
