@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import Product from './Product';
-import { db } from '../firebase';
+import { db, storage } from '../firebase';
 
 function AddProduct() {
   const [items, setItems] = useState([]);
@@ -14,11 +14,33 @@ function AddProduct() {
   const AddProd = (e) => {
     e.preventDefault();
     setItems([...items, { id, title, price, rating, image }]);
+    // storage.ref('/').set({
+    //   id: id,
+    //   title: title,
+    //   price: price,
+    //   rating: rating,
+    //   image: image,
+    // });
+    db.collection('items')
+      .add({
+        id: id,
+        title: title,
+        price: price,
+        rating: rating,
+        image: image,
+      })
+      .then(function (docRef) {
+        console.log('Document written with ID: ', docRef.id);
+      })
+      .catch(function (error) {
+        console.error('error adding document', error);
+      });
+
     setId('');
     setTitle('');
     setPrice('');
-    setRating('');
     setImage('');
+    setRating('');
   };
 
   useEffect(() => {
@@ -29,6 +51,7 @@ function AddProduct() {
 
   return (
     <div>
+      <h3> Adding items using DB </h3>
       <form>
         <h5>id</h5>
         <input onChange={(e) => setId(e.target.value)} value={id} type="text" />

@@ -48,10 +48,12 @@ function Header() {
             <span className="header_option_LineTwo"> Orders</span>
           </div>
         </Link>
-        <div className="header_option">
-          <span className="header_option_LineOne"> Your</span>
-          <span className="header_option_LineTwo"> Account</span>
-        </div>
+        <Link to="/add">
+          <div className="header_option">
+            <span className="header_option_LineOne"> For</span>
+            <span className="header_option_LineTwo"> Admin</span>
+          </div>
+        </Link>
         <Link to="/checkout">
           <div className="header_basket">
             <ShoppingCartIcon />
