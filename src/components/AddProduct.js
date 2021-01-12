@@ -25,8 +25,8 @@ function AddProduct() {
       .add({
         id: id,
         title: title,
-        price: price,
-        rating: rating,
+        price: parseInt(price),
+        rating: parseInt(rating),
         image: image,
       })
       .then(function (docRef) {
@@ -51,7 +51,7 @@ function AddProduct() {
 
   return (
     <div>
-      <h3> Adding items using DB </h3>
+      <h3> Adding items to the DB </h3>
       <form>
         <h5>id</h5>
         <input onChange={(e) => setId(e.target.value)} value={id} type="text" />
@@ -70,7 +70,7 @@ function AddProduct() {
         <h5>rating</h5>
         <input
           onChange={(e) => setRating(e.target.value)}
-          value={rating.integer}
+          value={rating}
           type={Number}
         />
         <h5>Image</h5>

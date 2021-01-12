@@ -1,10 +1,18 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './style/Home.css';
 import banner from '../Images/banner.png';
 import Product from './Product';
+import { db, storage } from '../firebase';
 
 function Home() {
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    db.collection('items').onSnapshot((snapshot) => {
+      setItems(snapshot.docs.map((doc) => doc.data()));
+    });
+  }, []);
   return (
     <div className="home">
       <div className="home_container">
@@ -49,7 +57,7 @@ function Home() {
               image="https://i.ebayimg.com/images/g/38kAAOSwx~FfGGHY/s-l1600.jpg"
             />
           </div>
-          <div className="home_row">
+          <div className="home_row2">
             <Product
               id="6"
               title="Samsung 65inch TV "
@@ -57,6 +65,16 @@ function Home() {
               rating={2}
               image="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6401/6401722_sd.jpg;maxHeight=640;maxWidth=550"
             />
+
+            {items.map((item) => (
+              <Product
+                id={item.id}
+                title={item.title}
+                price={item.price}
+                rating={item.rating}
+                image={item.image}
+              />
+            ))}
           </div>
         </div>
       </div>
