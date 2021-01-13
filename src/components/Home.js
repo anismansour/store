@@ -4,6 +4,7 @@ import './style/Home.css';
 import banner from '../Images/banner.png';
 import Product from './Product';
 import { db, storage } from '../firebase';
+import Carousel from 'react-elastic-carousel';
 
 function Home() {
   const [items, setItems] = useState([]);
@@ -65,16 +66,17 @@ function Home() {
               rating={2}
               image="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6401/6401722_sd.jpg;maxHeight=640;maxWidth=550"
             />
-
-            {items.map((item) => (
-              <Product
-                id={item.id}
-                title={item.title}
-                price={item.price}
-                rating={item.rating}
-                image={item.image}
-              />
-            ))}
+            <Carousel>
+              {items.map((item) => (
+                <Product
+                  id={item.id}
+                  title={item.title}
+                  price={item.price}
+                  rating={item.rating}
+                  image={item.image}
+                />
+              ))}
+            </Carousel>
           </div>
         </div>
       </div>
