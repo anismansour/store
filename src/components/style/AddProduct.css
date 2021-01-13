@@ -1,0 +1,32 @@
+.add__container > h3 {
+  margin-top: 15px;
+  margin-left: 10px;
+  font-weight: 900;
+  margin-bottom: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.add__container > form > h5 {
+  margin-bottom: 8px;
+  margin-top: 15px;
+  margin-left: 15px;
+}
+.add__container > form > input {
+  margin-left: 10px;
+  height: 30px;
+  margin-bottom: 10px;
+  background-color: white;
+  width: 40%;
+  border-radius: 10px;
+}
+.add__button {
+  background-color: rgb(38, 154, 192);
+  border: 1px solid;
+  margin-left: 10px;
+  border-color: red;
+  color: #111;
+  height: 30px;
+  width: 30%;
+  border-radius: 15px;
+  font-weight: bold;
+}

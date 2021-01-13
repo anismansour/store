@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
+import './style/AddProduct.css';
 import Product from './Product';
 import { db, storage } from '../firebase';
 
@@ -50,24 +51,24 @@ function AddProduct() {
   }, []);
 
   return (
-    <div>
-      <h3> Adding items to the DB </h3>
+    <div className="add__container">
+      <h3> Add items to the Data base </h3>
       <form>
-        <h5>id</h5>
+        <h5>ID</h5>
         <input onChange={(e) => setId(e.target.value)} value={id} type="text" />
-        <h5>title</h5>
+        <h5>Title</h5>
         <input
           onChange={(e) => setTitle(e.target.value)}
           value={title}
           type="text"
         />
-        <h5>price</h5>
+        <h5>Price</h5>
         <input
           onChange={(e) => setPrice(e.target.value)}
           value={price}
           type="text"
         />
-        <h5>rating</h5>
+        <h5>Rating</h5>
         <input
           onChange={(e) => setRating(e.target.value)}
           value={rating}
@@ -79,8 +80,8 @@ function AddProduct() {
           value={image}
           type="text"
         />
-        <button onClick={AddProd} className="Add__button">
-          ADD
+        <button className="add__button" onClick={AddProd}>
+          ADD PRODUCT
         </button>
       </form>
       {items.map((item) => (

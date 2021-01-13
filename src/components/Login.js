@@ -59,7 +59,7 @@ function Login() {
           {' '}
           By signing-in you agree to OnlineShop conditions of use and sale.
         </p>
-        <button onClick={register} className="login__button">
+        <button onClick={register} className="add__button">
           Create an account
         </button>
       </div>
