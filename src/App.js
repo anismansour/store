@@ -5,6 +5,11 @@
 // front   from store npm start
 // backend start from ./function  firebase emulators:start
 
+//update deploy
+// from ./function      firebase deploy --only functions
+// from store   npm run build
+// from store firebase deploy --only hosting
+
 import React, { useEffect } from 'react';
 import './components/style/App.css';
 import Header from './components/Header';
