@@ -30,3 +30,14 @@
   border-radius: 15px;
   font-weight: bold;
 }
+.button__delete {
+  margin-left: 10px;
+  background-color: orangered;
+  border: 1px solid;
+  height: 30px;
+  width: 200px;
+  border-radius: 10px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  font-size: 12px;
+}

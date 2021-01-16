@@ -14,14 +14,8 @@ function AddProduct() {
 
   const AddProd = (e) => {
     e.preventDefault();
-    setItems([...items, { id, title, price, rating, image }]);
-    // storage.ref('/').set({
-    //   id: id,
-    //   title: title,
-    //   price: price,
-    //   rating: rating,
-    //   image: image,
-    // });
+    setItems([...items, { id, title, price, rating: 1, image }]);
+
     db.collection('items')
       .add({
         id: id,
@@ -43,6 +37,10 @@ function AddProduct() {
     setImage('');
     setRating('');
   };
+  // const DeleteFromDb = () => {
+  // e.preventDefault();
+  //   console.log('this is the id from delete heeereeee ', id);
+  // };
 
   useEffect(() => {
     db.collection('items').onSnapshot((snapshot) => {
@@ -84,6 +82,7 @@ function AddProduct() {
           ADD PRODUCT
         </button>
       </form>
+
       {items.map((item) => (
         <Product
           id={item.id}
@@ -91,7 +90,7 @@ function AddProduct() {
           price={item.price}
           rating={item.rating}
           image={item.image}
-          hideButton
+          hideButtonAdd
         />
       ))}
     </div>

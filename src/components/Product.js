@@ -2,8 +2,18 @@
 import React from 'react';
 import { useStateValue } from '../context API/StateProvider';
 import './style/Product.css';
+import { db, storage } from '../firebase';
+import firebase from 'firebase';
 
-function Product({ id, title, image, price, rating, hideButton }) {
+function Product({
+  id,
+  title,
+  image,
+  price,
+  rating,
+  hideButtonAdd,
+  hideButtonDel,
+}) {
   const [{ basket }, dispatch] = useStateValue();
   //console.log('this is the basket===>', basket);
 
@@ -18,6 +28,28 @@ function Product({ id, title, image, price, rating, hideButton }) {
         rating: rating,
       },
     });
+  };
+  const DeleteFromDb = () => {
+    //e.preventDefault();
+    firebase
+      .firestore()
+      .collection('items')
+      .where('id', '==', id)
+      .get()
+      .then((querySnapshot) => {
+        querySnapshot.docs[0].ref.delete();
+      });
+    // console.log('this is the id from delete heereeee ', title);
+    // db.collection('items')
+    //   .where(id)
+    //   //.doc(id)
+    //   .delete()
+    //   .then(function () {
+    //     console.log('Document successfully deleted!');
+    //   })
+    //   .catch(function (error) {
+    //     console.error('Error removing document: ', error);
+    //   });
   };
   return (
     <div className="product">
@@ -36,7 +68,17 @@ function Product({ id, title, image, price, rating, hideButton }) {
         </div>
       </div>
       <img src={image} alt="productImage" />
-      {!hideButton && <button onClick={addToBasket}>Add to Basket</button>}
+      {!hideButtonAdd && <button onClick={addToBasket}>Add to Basket</button>}
+      {!hideButtonDel && (
+        <button
+          className="button__delete"
+          onClick={DeleteFromDb}
+
+          // db.collection('items').doc(item.docRef.id).delete();
+        >
+          Delete from DB
+        </button>
+      )}
     </div>
   );
 }
